@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/src/styles.css" type="text/thml" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <h2 class="mb-3 pb-20">Crea utente</h2>
+    <div class="content">
+      <form [formGroup]="angForm" novalidate>
+        <div class="user-details">
+          <div class="input-box">
+            <input
+              type="text"
+              id="nome"
+              class="form-control"
+              formControlName="nome"
+              placeholder="Inserici il nome...."
+            />
+            <small
+              *ngIf="
+                angForm.controls['nome'].invalid &&
+                (angForm.controls['nome'].dirty ||
+                  angForm.controls['nome'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['nome'].errors?.['required']">
+                Il compo nome è richiesto
+              </small>
+            </small>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              class="form-control"
+              id="cognome"
+              formControlName="cognome"
+              placeholder="Inserici il cognome"
+              required
+            />
+            <small
+              *ngIf="
+                angForm.controls['cognome'].invalid &&
+                (angForm.controls['cognome'].dirty ||
+                  angForm.controls['cognome'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['cognome'].errors?.['required']">
+                Il compo cognome è richiesto
+              </small>
+            </small>
+          </div>
+          <div class="input-box">
+            <input
+              type="number"
+              class="form-control"
+              id="telefono"
+              formControlName="telefono"
+              placeholder="Inserici il numero...."
+              required
+            />
+            <small
+              *ngIf="
+                angForm.controls['telefono'].invalid &&
+                (angForm.controls['telefono'].dirty ||
+                  angForm.controls['telefono'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['telefono'].errors?.['required']">
+                Il compo telefono è richiesto
+              </small>
+            </small>
+          </div>
+          <div class="input-box">
+            <input
+              type="number"
+              id="cap"
+              class="form-control"
+              formControlName="cap"
+              placeholder="Inserici il cap...."
+              required
+            />
+            <small
+              *ngIf="
+                angForm.controls['cap'].invalid &&
+                (angForm.controls['cap'].dirty ||
+                  angForm.controls['cap'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['cap'].errors?.['required']">
+                Il compo cap è richiesto
+              </small>
+            </small>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="paese"
+              class="form-control"
+              formControlName="citta"
+              placeholder="Inserici la città..."
+              required
+            />
+            <small
+              *ngIf="
+                angForm.controls['citta'].invalid &&
+                (angForm.controls['citta'].dirty ||
+                  angForm.controls['citta'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['citta'].errors?.['required']">
+                Il compo citta è richiesto
+              </small>
+            </small>
+          </div>
+          <div class="input-box">
+            <input
+              type="text"
+              id="paese"
+              class="form-control"
+              formControlName="country"
+              placeholder="Inserici il paese....."
+              required
+            />
+            <small
+              *ngIf="
+                angForm.controls['country'].invalid &&
+                (angForm.controls['country'].dirty ||
+                  angForm.controls['country'].touched)
+              "
+              class="alert alert-danger"
+            >
+              <small *ngIf="angForm.controls['country'].errors?.['required']">
+                Il compo country è richiesto
+              </small>
+            </small>
+          </div>
+
+          <div>
+            <button
+              class="btnCrea"
+              type="submit"
+              [disabled]="angForm.invalid"
+              (click)="createClient()"
+              [class.btnCrea]="!angForm.invalid"
+            >
+              Crea Utente
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

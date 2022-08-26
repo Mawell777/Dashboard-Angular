@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/styles.css" type="text/thml" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Dashboard</title>
+  </head>
+  <section *ngIf="tableCienti">
+    <h2 class="mb-3">Lista Utenti</h2>
+    <h4 style="padding-bottom: 20px" class="mb-3"></h4>
+    <button (click)="addFormClient()" class="add colobtn">
+      <i class="ri-add-line"></i>Add Utenti
+    </button>
+    <h4 style="padding-bottom: 18px" class="mb-3"></h4>
+    <div style="overflow-x: auto">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Nome</th>
+            <th scope="col">Cognome</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Città</th>
+            <th scope="col">Cap</th>
+            <th scope="col">Paese</th>
+            <th scope="col">Settings</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of clients" style="width: 21px !important">
+            <th scope="row">{{ item.id }}</th>
+            <td>{{ item.nome }}</td>
+            <td>{{ item.cognome }}</td>
+            <td>{{ item.telefono }}</td>
+            <td>{{ item.citta }}</td>
+            <td>{{ item.cap }}</td>
+            <td>{{ item.country }}</td>
+            <td>
+              <span
+                ><i
+                  routerLink="/edit/{{ item.id }}"
+                  class="ri-edit-line edit"
+                ></i
+                ><i
+                  (click)="deleteClient(item.id)"
+                  class="ri-delete-bin-line delete"
+                ></i
+              ></span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</html>
